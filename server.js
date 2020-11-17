@@ -4,6 +4,7 @@
  */
 const express = require('express');
 const bodyParser = require('body-parser');
+require('dotenv').config()
 const Server = require('http').Server;
 // Une Librairie SOCKET.IO
 const socket = require('socket.io');
@@ -16,7 +17,7 @@ const app = express();
 const server = Server(app);
 // Initialisation du socket
 const io = socket(server);
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 const db = {
   users: {
